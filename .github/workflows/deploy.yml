@@ -28,9 +28,9 @@ jobs:
       - name: Copy files to EC2
         uses: appleboy/scp-action@v0.1.7
         with:
-          host: ${{ secrets.EC2_HOST }}           # e.g. ec2-xx-xx-xx-xx.compute.amazonaws.com
-          username: ec2-user                      # Amazon Linux default
-          key: ${{ secrets.EC2_SSH_KEY }}         # PEM private key content from .pem file
+          host: ${{ secrets.EC2_HOST }}           
+          username: ec2-user                      
+          key: ${{ secrets.EC2_SSH_KEY }}         
           source: "dist/*"
           target: "/var/www/html"
 
