@@ -1,43 +1,87 @@
 import { Card } from '@/components/ui/card';
-import { Code, Database, Cloud, Terminal, Wrench, BookOpen } from 'lucide-react';
+import { Code, Database, Cloud, Terminal, Wrench, Box, Activity, Server, Network } from 'lucide-react';
+import {
+  SiLinux,
+  SiGnubash,
+  SiTerraform,
+  SiAnsible,
+  SiGithub,
+  SiGithubactions,
+  SiJenkins,
+  SiDocker,
+  SiKubernetes,
+  SiMysql,
+  SiSpring,
+  SiPrometheus,
+  SiGrafana,
+  SiOpentelemetry
+} from 'react-icons/si';
+import { FaJava, FaAws } from 'react-icons/fa';
 
 const Skills = () => {
   const skillCategories = [
     {
-      title: "Programming",
-      icon: <Code className="h-6 w-6" />,
-      skills: ["Java", "JavaScript", "Shell Scripting"],
+      title: "Foundation",
+      icon: <Terminal className="h-6 w-6" />,
+      skills: [
+        { name: "Operating System", icon: <Server className="h-4 w-4" /> }, // Generic server icon for OS
+        { name: "Linux", icon: <SiLinux className="h-4 w-4" /> },
+        { name: "Computer Networks", icon: <Network className="h-4 w-4" /> },
+        { name: "Shell Scripting", icon: <SiGnubash className="h-4 w-4" /> }
+      ],
       color: "text-blue-400"
     },
     {
-      title: "Database",
-      icon: <Database className="h-6 w-6" />,
-      skills: ["MySQL", "Database Design", "JDBC", "SQL Optimization"],
+      title: "Infrastructure/Config",
+      icon: <Cloud className="h-6 w-6" />,
+      skills: [
+        { name: "AWS", icon: <FaAws className="h-4 w-4" /> },
+        { name: "Terraform", icon: <SiTerraform className="h-4 w-4" /> },
+        { name: "Ansible", icon: <SiAnsible className="h-4 w-4" /> }
+      ],
       color: "text-green-400"
     },
     {
-      title: "Cloud & DevOps",
-      icon: <Cloud className="h-6 w-6" />,
-      skills: ["AWS", "Docker", "CI/CD", "Infrastructure as Code"],
+      title: "CI/CD Automation",
+      icon: <Wrench className="h-6 w-6" />,
+      skills: [
+        { name: "GitHub", icon: <SiGithub className="h-4 w-4" /> },
+        { name: "GitHub Actions", icon: <SiGithubactions className="h-4 w-4" /> },
+        { name: "Jenkins", icon: <SiJenkins className="h-4 w-4" /> }
+      ],
       color: "text-primary"
     },
     {
-      title: "Tools & Frameworks",
-      icon: <Wrench className="h-6 w-6" />,
-      skills: ["JavaFX", "Git", "Linux", "Monitoring Tools"],
+      title: "Containerization",
+      icon: <Box className="h-6 w-6" />,
+      skills: [
+        { name: "Docker", icon: <SiDocker className="h-4 w-4" /> },
+        { name: "Kubernetes", icon: <SiKubernetes className="h-4 w-4" /> }
+      ],
       color: "text-purple-400"
     },
+
     {
-      title: "System Knowledge",
-      icon: <Terminal className="h-6 w-6" />,
-      skills: ["Operating Systems", "Networking", "Cyber Security", "System Administration"],
-      color: "text-red-400"
+      title: "Monitoring & Logging",
+      icon: <Activity className="h-6 w-6" />,
+      skills: [
+        { name: "Prometheus", icon: <SiPrometheus className="h-4 w-4" /> },
+        { name: "Grafana", icon: <SiGrafana className="h-4 w-4" /> },
+        { name: "OpenTelemetry", icon: <SiOpentelemetry className="h-4 w-4" /> },
+        { name: "SigNoz", icon: <Activity className="h-4 w-4" /> }
+      ],
+      color: "text-yellow-400"
     },
     {
-      title: "Additional Skills",
-      icon: <BookOpen className="h-6 w-6" />,
-      skills: ["Event Management", "Graphic Design", "Technical Writing", "Project Management"],
-      color: "text-yellow-400"
+      title: "Development",
+      icon: <Code className="h-6 w-6" />,
+      skills: [
+        { name: "Java", icon: <FaJava className="h-4 w-4" /> },
+        { name: "MySQL", icon: <SiMysql className="h-4 w-4" /> },
+        { name: "JDBC", icon: <Database className="h-4 w-4" /> },
+        { name: "JavaFX", icon: <FaJava className="h-4 w-4" /> } // Reusing Java icon or generic
+      ],
+      color: "text-red-400"
     }
   ];
 
@@ -63,13 +107,15 @@ const Skills = () => {
                   </div>
                   <h3 className="text-xl font-semibold text-foreground">{category.title}</h3>
                 </div>
-                
+
                 <div className="space-y-3">
                   {category.skills.map((skill, skillIndex) => (
                     <div key={skillIndex} className="flex items-center gap-3">
-                      <div className="w-2 h-2 bg-primary rounded-full"></div>
+                      <div className="p-1 bg-secondary rounded-full text-primary">
+                        {skill.icon}
+                      </div>
                       <span className="text-muted-foreground hover:text-foreground transition-colors">
-                        {skill}
+                        {skill.name}
                       </span>
                     </div>
                   ))}

@@ -10,12 +10,7 @@ const Contact = () => {
       value: "maurwin2003@gmail.com",
       href: "mailto:maurwin2003@gmail.com"
     },
-    {
-      icon: <Phone className="h-5 w-5" />,
-      label: "Phone",
-      value: "+91 8928878578",
-      href: "tel:+918928878578"
-    },
+
     {
       icon: <Linkedin className="h-5 w-5" />,
       label: "LinkedIn",
