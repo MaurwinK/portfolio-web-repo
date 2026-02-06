@@ -1,6 +1,7 @@
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ExternalLink, Github, Database, Coffee, Plus, Container, Server, Trophy } from 'lucide-react';
+import { MotionWrapper } from '@/components/MotionWrapper';
 
 const Portfolio = () => {
   const professionalExperiences = [
@@ -131,7 +132,7 @@ const Portfolio = () => {
               <span className="text-xl text-primary font-medium">{project.company}</span>
             )}
           </div>
-          {project.period && (
+          {project.company && project.period && (
             <p className="text-sm text-foreground/80 mb-2 font-mono">
               {project.period} {project.location ? `| ${project.location}` : ''}
             </p>
@@ -181,29 +182,39 @@ const Portfolio = () => {
     <section id="portfolio" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-              Featured <span className="text-primary">Work</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              A showcase of my professional experience and technical projects.
-            </p>
-          </div>
+          <MotionWrapper>
+            <div className="text-center mb-16">
+              <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+                Featured <span className="text-primary">Work</span>
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                A showcase of my professional experience and technical projects.
+              </p>
+            </div>
+          </MotionWrapper>
 
           <div className="mb-16">
-            <h3 className="text-2xl font-bold mb-8 border-b border-border pb-4">Professional Experience</h3>
+            <MotionWrapper delay={0.2}>
+              <h3 className="text-2xl font-bold mb-8 border-b border-border pb-4">Professional Experience</h3>
+            </MotionWrapper>
             <div className="grid lg:grid-cols-1 gap-8"> {/* Changed to 1 column for experience to give more space */}
               {professionalExperiences.map((experience, index) => (
-                <ProjectCard key={index} project={experience} />
+                <MotionWrapper key={index} delay={0.3 + (index * 0.1)}>
+                  <ProjectCard project={experience} />
+                </MotionWrapper>
               ))}
             </div>
           </div>
 
           <div>
-            <h3 className="text-2xl font-bold mb-8 border-b border-border pb-4">Personal Projects</h3>
+            <MotionWrapper delay={0.2}>
+              <h3 className="text-2xl font-bold mb-8 border-b border-border pb-4">Personal Projects</h3>
+            </MotionWrapper>
             <div className="grid lg:grid-cols-2 gap-8">
               {personalProjects.map((project, index) => (
-                <ProjectCard key={index} project={project} />
+                <MotionWrapper key={index} delay={0.3 + (index * 0.1)}>
+                  <ProjectCard project={project} />
+                </MotionWrapper>
               ))}
             </div>
           </div>
