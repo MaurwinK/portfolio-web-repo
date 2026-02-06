@@ -1,6 +1,7 @@
 import { ArrowRight, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import profileImage from '@/assets/pfp.jpg';
+import resume from '@/assets/Maurwin_Bhardwaj_Resume.pdf';
 
 const Hero = () => {
   const scrollToContact = () => {
@@ -26,9 +27,9 @@ const Hero = () => {
                   <span className="text-muted-foreground">DevOps & Security</span>
                 </h1>
               </div>
-              
+
               <p className="text-xl text-muted-foreground max-w-lg leading-relaxed">
-                A multidisciplinary Computer Science graduate combining DevOps expertise, 
+                A multidisciplinary Computer Science graduate combining DevOps expertise,
                 Java development, and event management to achieve exceptional digital experiences.
               </p>
 
@@ -37,12 +38,12 @@ const Hero = () => {
                   Let's Talk
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
-                
-                <a href='/Resume-August.pdf' download="Maurwin_Resume.pdf">
+
+                <a href={resume} download="Maurwin_Bhardwaj_Resume.pdf">
                   <Button variant="outline" size="lg" className="group">
-                  <Download className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
-                  Download CV
-                </Button>
+                    <Download className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
+                    Download CV
+                  </Button>
                 </a>
               </div>
             </div>
