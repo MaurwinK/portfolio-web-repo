@@ -1,6 +1,6 @@
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ExternalLink, Github, Database, Coffee, Plus, Container, Server, Trophy } from 'lucide-react';
+import { ExternalLink, Github, Database, Coffee, Plus, Container, Server, Trophy, Brain } from 'lucide-react';
 import { MotionWrapper } from '@/components/MotionWrapper';
 
 const Portfolio = () => {
@@ -67,33 +67,22 @@ const Portfolio = () => {
 
   const personalProjects = [
     {
-      title: "DevOps Static Website Project",
-      description: "A fast and lightweight personal website hosted on AWS S3 with HTML, CSS, and JavaScript.",
-      technologies: ["AWS"],
+      title: "Realtime Customer Churn Prediction Pipeline",
+      description: "Built an end-to-end MLOps pipeline for a Customer Churn Prediction model, from data generation and model training to cloud-native deployment and real-time inference.",
+      period: "July 2026",
+      technologies: ["Python", "Scikit-learn", "DVC", "AWS S3", "Kubernetes", "KServe", "ArgoCD"],
       features: [
-        "Responsive design using HTML, CSS, JS",
-        "Fast loading with global delivery via AWS CloudFront",
-        "Lightweight, no backend required"
+        "Versioned datasets using DVC with Amazon S3 as remote storage and deployed the trained model on Kubernetes using KServe to expose scalable REST API endpoints.",
+        "Implemented a GitOps-based deployment workflow using ArgoCD, enabling automated synchronization of Kubernetes resources from GitHub."
       ],
-      icon: <Coffee className="h-8 w-8" />,
-      status: "completed"
-    },
-    {
-      title: "Dockerized 3-Tier Web Application",
-      description: "Automated and deployed a 3-tier 'My Notes' web app using Docker Compose with Nginx (frontend), Django (backend), and MySQL (database). Hosted on AWS EC2 with custom security groups for production-level deployment.",
-      technologies: ["AWS", "Docker", "Nginx", "Django", "MySQL"],
-      features: [
-        "3-tier architecture with Docker Compose",
-        "AWS EC2 production deployment",
-        "Custom security groups",
-        "Scalable containerization"
-      ],
-      icon: <Container className="h-8 w-8" />,
+      icon: <Brain className="h-8 w-8" />,
+      githubLink: "https://github.com/MaurwinK/Realtime-MLOps-Project",
       status: "completed"
     },
     {
       title: "Kubernetes-Powered MERN Chat App",
       description: "Deployed a full-stack MERN chat app on a local Kubernetes cluster (Minikube). Managed frontend, Node.js, and MongoDB database using container orchestration.",
+      period: "September 2025",
       technologies: ["Kubernetes", "Docker", "AWS", "Node.js", "MongoDB"],
       features: [
         "Minikube local cluster deployment",
@@ -105,8 +94,36 @@ const Portfolio = () => {
       status: "completed"
     },
     {
+      title: "Dockerized 3-Tier Web Application",
+      description: "Automated and deployed a 3-tier 'My Notes' web app using Docker Compose with Nginx (frontend), Django (backend), and MySQL (database). Hosted on AWS EC2 with custom security groups for production-level deployment.",
+      period: "August 2025",
+      technologies: ["AWS", "Docker", "Nginx", "Django", "MySQL"],
+      features: [
+        "3-tier architecture with Docker Compose",
+        "AWS EC2 production deployment",
+        "Custom security groups",
+        "Scalable containerization"
+      ],
+      icon: <Container className="h-8 w-8" />,
+      status: "completed"
+    },
+    {
+      title: "DevOps Static Website Project",
+      description: "A fast and lightweight personal website hosted on AWS S3 with HTML, CSS, and JavaScript.",
+      period: "July 2025",
+      technologies: ["AWS"],
+      features: [
+        "Responsive design using HTML, CSS, JS",
+        "Fast loading with global delivery via AWS CloudFront",
+        "Lightweight, no backend required"
+      ],
+      icon: <Coffee className="h-8 w-8" />,
+      status: "completed"
+    },
+    {
       title: "Bank Management System",
       description: "A comprehensive banking application developed using JavaFX, JDBC, and MySQL. Features full CRUD operations for managing bank data, customer accounts, and transactions with a modern GUI interface.",
+      period: "June 2024",
       technologies: ["Java", "JavaFX", "MySQL", "JDBC"],
       features: [
         "Create, Read, Update, Delete operations",
@@ -132,7 +149,7 @@ const Portfolio = () => {
               <span className="text-xl text-primary font-medium">{project.company}</span>
             )}
           </div>
-          {project.company && project.period && (
+          {project.period && (
             <p className="text-sm text-foreground/80 mb-2 font-mono">
               {project.period} {project.location ? `| ${project.location}` : ''}
             </p>
@@ -167,7 +184,7 @@ const Portfolio = () => {
       {/* Only show GitHub link if it is NOT an experience entry (identified by presence of company field for now, or just check 'status' logic) */}
       {!project.company && project.status === "completed" && (
         <div className="flex gap-3 mt-6">
-          <a href="https://github.com/MaurwinK" target="_blank" rel="noopener noreferrer">
+          <a href={project.githubLink || "https://github.com/MaurwinK"} target="_blank" rel="noopener noreferrer">
             <Button variant="outline" size="sm" className="group">
               <Github className="mr-2 h-4 w-4 group-hover:scale-110 transition-transform" />
               View Code

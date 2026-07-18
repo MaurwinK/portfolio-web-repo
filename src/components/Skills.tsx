@@ -1,5 +1,5 @@
 import { Card } from '@/components/ui/card';
-import { Code, Database, Cloud, Terminal, Wrench, Box, Activity, Server, Network } from 'lucide-react';
+import { Code, Database, Cloud, Terminal, Wrench, Box, Activity, Server, Network, BrainCog, Workflow } from 'lucide-react';
 import {
   SiLinux,
   SiGnubash,
@@ -14,7 +14,9 @@ import {
   SiSpring,
   SiPrometheus,
   SiGrafana,
-  SiOpentelemetry
+  SiOpentelemetry,
+  SiDvc,
+  SiMlflow
 } from 'react-icons/si';
 import { FaJava, FaAws } from 'react-icons/fa';
 import { MotionWrapper } from '@/components/MotionWrapper';
@@ -61,7 +63,18 @@ const Skills = () => {
       ],
       color: "text-purple-400"
     },
-
+    {
+      title: "MLOps",
+      icon: <BrainCog className="h-6 w-6" />,
+      skills: [
+        { name: "DVC", icon: <SiDvc className="h-4 w-4" /> },
+        { name: "MLflow", icon: <SiMlflow className="h-4 w-4" /> },
+        { name: "KServe", icon: <Server className="h-4 w-4" /> },
+        { name: "Kubeflow", icon: <Workflow className="h-4 w-4" /> },
+        { name: "AWS SageMaker AI", icon: <FaAws className="h-4 w-4" /> }
+      ],
+      color: "text-orange-400"
+    },
     {
       title: "Monitoring & Logging",
       icon: <Activity className="h-6 w-6" />,
