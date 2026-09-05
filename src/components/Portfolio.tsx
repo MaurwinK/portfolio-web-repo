@@ -1,6 +1,6 @@
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ExternalLink, Github, Database, Coffee, Plus, Container, Server, Trophy, Brain } from 'lucide-react';
+import { ExternalLink, Github, Database, Coffee, Plus, Container, Server, Trophy, Brain, Workflow } from 'lucide-react';
 import { MotionWrapper } from '@/components/MotionWrapper';
 
 const Portfolio = () => {
@@ -66,6 +66,19 @@ const Portfolio = () => {
   ];
 
   const personalProjects = [
+    {
+      title: "GitOps Microservices Deployment",
+      description: "Architected and implemented a declarative GitOps delivery platform on AWS EKS, automating infrastructure provisioning and continuous deployments for microservices.",
+      period: "August 2026",
+      technologies: ["AWS", "Kubernetes", "Terraform", "Argo CD", "GitHub Actions", "Docker"],
+      features: [
+        "Provisioned AWS EKS Auto Mode with custom multi-tier VPC networking, subnets, and fine-grained IAM roles using Terraform.",
+        "Built GitOps-driven CI/CD pipelines with GitHub Actions, Amazon ECR, and Argo CD for automated, drift-managed application synchronization.",
+        "Deployed a microservices retail app on Kubernetes with NGINX Ingress Controller and automated TLS certificate management via Cert-Manager."
+      ],
+      icon: <Workflow className="h-8 w-8" />,
+      status: "completed"
+    },
     {
       title: "Realtime Customer Churn Prediction Pipeline",
       description: "Built an end-to-end MLOps pipeline for a Customer Churn Prediction model, from data generation and model training to cloud-native deployment and real-time inference.",

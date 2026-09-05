@@ -7,7 +7,7 @@ import {
   SiAnsible,
   SiGithub,
   SiGithubactions,
-  SiJenkins,
+  SiArgo,
   SiDocker,
   SiKubernetes,
   SiMysql,
@@ -50,7 +50,7 @@ const Skills = () => {
       skills: [
         { name: "GitHub", icon: <SiGithub className="h-4 w-4" /> },
         { name: "GitHub Actions", icon: <SiGithubactions className="h-4 w-4" /> },
-        { name: "Jenkins", icon: <SiJenkins className="h-4 w-4" /> }
+        { name: "ArgoCD", icon: <SiArgo className="h-4 w-4" /> }
       ],
       color: "text-primary"
     },
